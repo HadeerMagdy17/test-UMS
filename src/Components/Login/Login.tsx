@@ -2,18 +2,25 @@ import axios from "axios";
 import React, { useContext } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from './../Context/AuthContext';
 
+// Define the structure of the login form inputs
 interface LoginFormInputs {
   username: string;
   password: string;
 }
 
+// Define the structure of the AuthContext
+interface AuthContextType {
+  saveUserData: () => void;
+}
+
 const Login: React.FC = () => {
   const navigate = useNavigate();
-  let{saveUserData}=useContext(AuthContext)
+  const { saveUserData } = useContext(AuthContext) as AuthContextType;
+
   const {
     register,
     handleSubmit,
@@ -23,7 +30,7 @@ const Login: React.FC = () => {
   const onSubmit: SubmitHandler<LoginFormInputs> = async (data) => {
     try {
       const response = await axios.post("https://dummyjson.com/auth/login", data);
-      localStorage.setItem("userToken",response?.data?.accessToken);
+      localStorage.setItem("userToken", response?.data?.accessToken);
       saveUserData();
       setTimeout(() => {
         navigate("/dashboard");
@@ -37,7 +44,6 @@ const Login: React.FC = () => {
 
   return (
     <>
-      {/* <ToastContainer /> */}
       <div
         id="login"
         className="login-container vh-100 d-flex justify-content-center align-items-center"
@@ -59,10 +65,10 @@ const Login: React.FC = () => {
                 placeholder="Enter your username"
                 {...register("username", { required: "Username is required" })}
               />
+              {errors.username && (
+                <span className="text-danger">{errors.username.message}</span>
+              )}
             </div>
-            {errors.username && (
-              <span className="text-danger">{errors.username.message}</span>
-            )}
             <div className="my-1">
               <label className="form-label">Password</label>
               <input
@@ -71,10 +77,10 @@ const Login: React.FC = () => {
                 placeholder="Enter your password"
                 {...register("password", { required: "Password is required" })}
               />
+              {errors.password && (
+                <span className="text-danger">{errors.password.message}</span>
+              )}
             </div>
-            {errors.password && (
-              <span className="text-danger">{errors.password.message}</span>
-            )}
             <button className="btn btn-warning sign-btn w-100 text-white mt-3">
               SIGN IN
             </button>

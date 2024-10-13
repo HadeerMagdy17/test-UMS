@@ -1,9 +1,10 @@
-import React from 'react'
 
-export default function Home() {
-  return (
-    <div className='bg-info'>
-      home
-    </div>
-  )
-}
+
+const Home: React.FC = () => (
+  <div className="bg-info">
+    home
+  </div>
+);
+
+export default Home;
+

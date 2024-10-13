@@ -1,8 +1,8 @@
-import React, { useContext } from 'react'
+import  { useContext } from 'react'
 import { AuthContext } from '../Context/AuthContext'
 
 export default function NavBar() {
-  let{userData}=useContext(AuthContext)
+  let{userData}:any=useContext(AuthContext)
   return (
     <>
       <div className='mx-3'>
