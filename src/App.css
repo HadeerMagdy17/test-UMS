@@ -1,0 +1,45 @@
+html,
+body,
+.modal-content {
+  font-family: "Montserrat", sans-serif !important;
+}
+
+.login-container {
+    background: linear-gradient(to right, rgba(254, 175, 0, .9), rgba(254, 175, 0, .6)
+    );
+}
+.login-h1 ::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 35px;
+    background-color: #f8d442;
+    margin-right: 10px;
+  }
+  .sidebarContainer{background-color: bisque;}
+  .sidebarContainer .ps-sidebar-container .ps-menu-button:hover {
+    background-color: rgba(239, 155, 40, 0.3);
+  }
+  /* .sidebarContainer .ps-sidebar-container{
+    background-color: blueviolet !important;
+} */
+ 
+
+  /* .sidebarContainer .ps-sidebar-container {
+    background-color: #1f263e !important;
+    border-top-right-radius: 40px;
+    color: #fff;
+  }
+  .sidebarContainer .ps-sidebar-container .ps-menu-button:hover {
+    background-color: rgba(0, 146, 71, 0.1);
+  } */
+  /* .sidebar-container .ps-sidebar-root-test-id {
+    background-color: #1f263e !important; /* Set your desired color */
+    /* border-top-right-radius: 40px;
+    color: #fff;  */
+    /* This sets the text color */
+  /* } */
+  
+  /* .sidebar-container ps-sidebar-root-test-id .ps-menu-button:hover {
+    background-color: rgba(0, 146, 71, 0.1); /* Keep or change hover effect */
+   
